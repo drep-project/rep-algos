@@ -19,7 +19,7 @@
 
 1、给用户分配声誉ID和对用户分组
 
-# 调用repjs.GetProfile方法，传入参数商家平台号（platformID），和用户在该商家平台上的用户唯一标识（UID），返回用户在DREP声誉系统中的声誉ID（repID）与所属分组的类别（groupID)。
+调用repjs.GetProfile方法，传入参数商家平台号（platformID），和用户在该商家平台上的用户唯一标识（UID），返回用户在DREP声誉系统中的声誉ID（repID）与所属分组的类别（groupID)。
 
 2、在DREP声誉系统中注册用户
 
