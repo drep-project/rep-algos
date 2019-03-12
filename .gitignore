@@ -1,0 +1,7 @@
+.DS_Store
+go.sum
+.vscode
+.idea
+tools/gencode/*.js
+dreptest*
+data
