@@ -17,12 +17,12 @@
 
 #### 1、给用户分配声誉ID和对用户分组
 
-调用repjs.GetProfile方法，传入参数商家平台号（platformID），和用户在该商家平台上的用户唯一标识（UID），返回用户在DREP声誉系统中的声誉ID（repID）与所属分组的类别（groupID)。
+调用GetProfile方法，传入参数商家平台号（platformID），和用户在该商家平台上的用户唯一标识（UID），返回用户在DREP声誉系统中的声誉ID（repID）与所属分组的类别（groupID)。
 
 ```
 var platformID string = "taobao"
 var UID string = "me"
-var profile map[string] interface{} = repjs.GetProfile(platformID, UID)
+var profile map[string] interface{} = GetProfile(platformID, UID)
 // profile {
 //    repID: 1234,
 //    groupID: 12
@@ -31,18 +31,18 @@ var profile map[string] interface{} = repjs.GetProfile(platformID, UID)
 
 #### 2、在DREP声誉系统中注册用户
 
-调用repjs.RegisterUser方法，传入商家平台号platformID，用户的repID与用户所属组别groupID，完成对用户在DREP声誉系统中的注册。
+调用RegisterUser方法，传入商家平台号platformID，用户的repID与用户所属组别groupID，完成对用户在DREP声誉系统中的注册。
 
 ```
 var platformID string = "taobao"
 var repID string = "1234"
 var groupID int64 = 12
-repjs.RegisterUser(platformID, repID, groupID)
+RegisterUser(platformID, repID, groupID)
 ```
 
 #### 3、将商家平台上用户每天的积分获取情况导入DREP声誉系统中
 
-调用repjs.AddGain方法，传入商家平台号platformID，以及一组用户积分数据，其中用户积分数据包括用户repID，日期Day，和用户在日期当天获得的积分数Gain。调用完成后，这组用户数据将被记录在DREP声誉系统中，用于后面的声誉结算。
+调用AddGain方法，传入商家平台号platformID，以及一组用户积分数据，其中用户积分数据包括用户repID，日期Day，和用户在日期当天获得的积分数Gain。调用完成后，这组用户数据将被记录在DREP声誉系统中，用于后面的声誉结算。
 
 ```
 var platformID string = "taobao"
@@ -57,27 +57,27 @@ inc2["RepID"] = "1234"
 inc2["Day"] = 2
 inc2["Gain"] = 30
 increments[1] = inc2
-repjs.AddGain(platformID, increments)
+AddGain(platformID, increments)
 ```
 
 #### 4、结算用户的声誉
 
-调用repjs.LiquidateRep方法，传入商家平台号platformID，一组用户repIDs，以及截止日期until，DREP声誉系统将自动结算所有repIDs中的用户截止到until当天前每天的声誉获得情况，并根据结算声誉发放相应的Token奖励。
+调用LiquidateRep方法，传入商家平台号platformID，一组用户repIDs，以及截止日期until，DREP声誉系统将自动结算所有repIDs中的用户截止到until当天前每天的声誉获得情况，并根据结算声誉发放相应的Token奖励。
 
 ```
 var platformID string = "taobao"
 var repIDs []string = []string{"1234", "2234", "3234", "4234"}
 var until int = 2
-repjs.LiquidateRep(platformID, repIDs, until)
+LiquidateRep(platformID, repIDs, until)
 ```
 
 #### 5、按组别结算用户的声誉
 
-调用repjs.LiquidateRepByGroup方法，传入商家平台号platformID，组别groupID，以及截止日期until，DREP声誉系统将自动结算所有属于groupID对应组中的用户截止到until当天前每天的声誉获得情况，并根据结算声誉发放相应的Token奖励。
+调用LiquidateRepByGroup方法，传入商家平台号platformID，组别groupID，以及截止日期until，DREP声誉系统将自动结算所有属于groupID对应组中的用户截止到until当天前每天的声誉获得情况，并根据结算声誉发放相应的Token奖励。
 
 ```
 var platformID string = "taobao"
 var groupID int64 = 12
 var until int = 2
-repjs.LiquidateRepByGroup(platformID, groupID, until)
+LiquidateRepByGroup(platformID, groupID, until)
 ```
