@@ -1,4 +1,4 @@
-package repjs
+package main
 
 import (
     "github.com/robertkrimen/otto"
