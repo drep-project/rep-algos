@@ -34,6 +34,7 @@ tag：声誉  数值模拟
 
 基于以下分段EMA模型计算累计声誉：
 
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/formula_1.png)
 $$
 Rep_{total}(t)=\sum_0^n\sum_{start\tau}^{end\tau}\alpha_i^{\tau}Rep_{gain}(t-\tau)\times(1+\beta Time_{active}^{\gamma})
 $$
@@ -54,6 +55,7 @@ Rep_gain (t-τ)表示时间点t-τ获得的声誉，Rep_total则是累计声誉�
 #### Token奖励模型
 
 考虑到累计声誉需要与相应子链的token奖励结合，考虑到响应性、奖励的一致性等诸多因素，采用以下公式计算第t个时间点获得的奖励Token数量：
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/formula_2.png)
 $$
 Token(t)=k\times Rep_{total}(t)*Rep_{gain}^2(t)/(Rep_{gain}(t-1)+1)/100/(Time_{active}+1)
 $$
@@ -64,16 +66,19 @@ $$
 #### 长期增性
 
 回归模型在各种时间序列分析中均得到应用，但在声誉模型计算中会发现这样一个问题：当用户的活跃程度稳定之后，长期来看获得的声誉是一个与活跃程度f，活跃时平均获得声誉E(Rep_active)相关的确定值：
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/formula_3.png)
 $$
 E(Rep_{cum})=f*E(Rep_{active})*\sum_0^n\sum_{start\tau}^{end\tau}\alpha_i^\tau
 $$
 而对累计声誉距离期望差小于ε所需的时间期望
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/formula_4.png)
 $$
 E(t||Rep_{cum}(t)-E(Rep_{cum})|<\epsilon))=\int_0^{\infin}tP(|Rep_{cum}(t)-E(Rep_{cum})|<\epsilon) dt
 $$
 鉴于模型的复杂性，我们选择使用数值方法进行计算，在1000天范围之内可以得出当f>0.32时相应期望t在1000天之内，随着f的上升所需时间也会减少。这就对高活跃频率的用户无法起到任何的激励作用。
 
 于是我们采用累计活跃天数对高活跃玩家的累计声誉进行奖励：
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/formula_5.png)
 $$
 Augment\ Factor=1+\beta Time_{active}^{\gamma}
 $$
@@ -84,11 +89,13 @@ $$
 累计声誉的获取与Token奖励的释放均应该与声誉的获得成正相关，但这种相关性应当是有限的，如果相关性过高，那么完全有理由用更少的变量替代，降低区块链运行成本；而相关系数过低，则导致用户难以将自身行为与显现的结果联系起来，影响激励动力，不利于积分生态建设。
 
 根据计算可以得知：
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/)
 $$
 \eta(Rep_{gain},Rep_{cum})=\frac{Cov(Rep_{gain},Rep_{cum})}{\sqrt{Var(Rep_{gain})Var(Rep_{cum})}}=0.1344\\
 \eta(Rep_{cum},Token_{sum})=\frac{Cov(Rep_{cum},Token_{sum})}{\sqrt{Var(Rep_{cum})Var(Token_{sum})}}=0.4786
 $$
 说明Token的获得和累计声誉的关系较大，而单个时间点的声誉获取与累计声誉的关系并不大。相对应的，如果将回归时间段的回归声誉与累计声誉的相关性进行计算可以得到：
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/)
 $$
 \eta(Rep_{sum1},Rep_{cum})=\frac{Cov(Rep_{sum1},Rep_{cum})}{\sqrt{Var(Rep_{sum1})Var(Rep_{cum})}}=0.8658
 $$
@@ -107,16 +114,18 @@ $$
 累计活跃天数（Cumulative Active Days as Timeactive）
 
 证明如下：
-
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/)
 $$
 Rep_{total}(t)/(1+\beta Time_{active}^{\gamma})=Rep_{t_0}(t)+Rep_{past}(t)
 $$
 从而可以用数学归纳法计算出各个时间的声誉获取：
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/)
 $$
 t=0,Rep_{t_0}(t)=Rep_{gain}(t)\\
 t<t_0,Rep_{t_0}(t)=Rep_{gain}(t)+\alpha_1Rep_{t_0}(t-1),\\thus\ Rep_{gain}(t)=Rep_{t_0}(t)-\alpha_1Rep_{t_0}(t-1)
 $$
 然后当t>=t0时：
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/)
 $$
 Rep_{t_0}(t)=Rep_{gain}(t)+\alpha_1[Rep_{t_0}(t-1)-r_0Rep_{gain}(t-t_0+1)]\\
 Rep_{past}(t)=\alpha_2[Rep_{past}(t-1)+r_0Rep_{gain}(t-t_0+1)]\\
@@ -291,6 +300,7 @@ F分布下由于有更大的概率出现边界值，所以F分布应该比正态
 #### Morris法灵敏度分析
 
 除了随机模型的分布特性无法转化为Morris法参数以外，其余变量均可以Morris法进行分析，得出相应的灵敏性系数：
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/)
 $$
 Matrix_{Morris}[Scale_{time}\ f\ \alpha_1\ \alpha_2\ \beta\ \gamma]= \overrightarrow{Result}
 $$
@@ -416,10 +426,12 @@ f=0.8结果图
 鉴于某些需求中可能会对老用户提供一定的基础声誉值作为纪念，而不希望他们回归后发现需要重新开始，提供一个保底值与回归减缓的设计。
 
 保底值：当最后一次活跃后一直不再获取Rep后，累计声誉降低的下限。到了保底值，累计声誉不再下降，但在重新变得活跃前丧失未来参与奖励等活动的权利。
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/)
 $$
 Rep_{remain}=Rep_{gain}(t_{lastactive})*bottom\ factor
 $$
 同时为了挽留老用户，其回归曲线的后面较为陡峭的一段会变得更加和缓：
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/)
 $$
 \alpha_n'=\alpha_n^{(t_n-t_{n-1})/(t_n-t_{n-1}+[k*Rep_{remain}^l])}
 $$
