@@ -140,7 +140,7 @@ t0天前的数据显然可以从t<t0的数据获得，从而可以恢复用户�
 
 模型参数通过setting2.ini读入，用来确定需要多少时间才能获得相应的累计应用。如果显示最大时间且误差棒偏差为0，表明在相应时间段内不可能达到相应的声誉值。
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\Rep_time.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/Rep_time.png)
 
 对目标1000累计声誉的统计，表明在用户活跃频率在40%之前，基本没有可能在1000天之内获得1000累计声誉。随着活跃频率的上升，所需天数相应减少。这样，就可以根据相应的临界值设定相应的声誉等级。
 
@@ -163,7 +163,7 @@ t0天前的数据显然可以从t<t0的数据获得，从而可以恢复用户�
 
 一个示意图如下，事实上上面的统计正是在此结果之上进行：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\Rep_sim.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/Rep_sim.png)
 
 一个在之前1/3以50%频率活跃用户，中间1/3完全沉默，后面1/3以40%频率活跃用户的累计声誉计算模拟
 
@@ -173,7 +173,7 @@ t0天前的数据显然可以从t<t0的数据获得，从而可以恢复用户�
 
 默认参数随机结果如下（蓝线为随机声誉获得序列，红色为累计声誉）：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_std.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_std.png)
 
 默认参数：以1天作为单位，活跃频率50%，回归衰减速度slow的示意图
 
@@ -183,11 +183,11 @@ t0天前的数据显然可以从t<t0的数据获得，从而可以恢复用户�
 
 以1小时作为尺度的图像：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_hour.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_hour.png)
 
 以1分钟作为尺度的图像：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_minute.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_minute.png)
 
 在排除随机数造成的差别之后可以认为，在不同的时间尺度下基本达成一致的结果，均是在震荡中逐步上升。这足以说明声誉获取模型对时间尺度变化的灵敏性较低，换句话说系统具有跨不同时间尺度的通用性。
 
@@ -195,23 +195,23 @@ t0天前的数据显然可以从t<t0的数据获得，从而可以恢复用户�
 
 在衰减速度一项，具有5个档位：very fast、fast、medium、slow和very slow五种。不同的档位下累计声誉的数值和波动程度会具有一定的变化。下面以一个相同随机数据源的计算来讨论：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_veryfast.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_veryfast.png)
 
 very fast效果示意图
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_fast.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_fast.png)
 
 fast效果示意图
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_medium.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_medium.png)
 
 medium效果示意图
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_slow.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_slow.png)
 
 slow效果示意图
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_veryslow.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_veryslow.png)
 
 very slow示意图
 
@@ -236,31 +236,31 @@ very slow示意图
 
 用户不同的活跃频率对累计声誉的影响非常大，如下所示：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_0.2.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_0.2.png)
 
 f=0.2示意图
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_0.3.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_0.3.png)
 
 f=0.3示意图
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_0.4.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_0.4.png)
 
 f=0.4示意图
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_0.5.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_0.5.png)
 
 f=0.5示意图
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_0.6.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_0.6.png)
 
 f=0.6示意图
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_0.7.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_0.7.png)
 
 f=0.7示意图
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_0.8.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_0.8.png)
 
 f=0.8示意图
 
@@ -272,19 +272,19 @@ f=0.8示意图
 
 在F分布下结果如下：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_f.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_f.png)
 
 F分布下由于有更大的概率出现边界值，所以F分布应该比正态分布更加分散与激烈。目前的算法可以很好地平衡短期的较大变动和长期的稳定。
 
 将正态分布的平均值上升到40结果如下：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_40.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_40.png)
 
 可以看出，改变平均值会提高累计声誉的获得，但变化趋势与之前相似，都是逐渐上升。
 
 提高标准差到15的结果如下：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_15.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_15.png)
 
 标准差的增大必然伴随着小概率事件的增加，这种波动在系统中得到了很好的体现。而平均值没有变化，应该从长期而言累计声誉也不会有较大的变化，这也是和之前相符的。
 
@@ -311,19 +311,19 @@ $$
 
 考虑到真实情况，我们对不同时期离开相应平台后累计声誉的变化的分析如下：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_3_end.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_3_end.png)
 
 可以看出，在30天内仍然会保有一定程度的累计声誉，30天到60天以快速指数下滑的方式将累计声誉归零。
 
 另一个例子则是30天后离开相应平台：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_30_end.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_30_end.png)
 
 即使使30天都活跃的优秀用户，其声誉大约在第90天归零，同时其下降速度也更加和缓，符合一般认知。
 
 再考虑后期用户回归的情况：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_30_100.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_30_100.png)
 
 回归后速度只比原先稍快，即说明这个系统即能很好的反映之前有声誉累计，老用户回归有优势，同时这个优势并不大，不足以影响新用户的热情。同时，根据之前的活跃天数积累，前面活跃的30天只会残余5天，在损失了25天的活跃天数后已经和持续活跃用户拉开了差距。
 
@@ -337,19 +337,19 @@ $$
 
 #### 不同活跃频率下平均结果的分析：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_a_0.2.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_a_0.2.png)
 
 f=0.2结果图
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_a_0.4.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_a_0.4.png)
 
 f=0.4结果图
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_a_0.6.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_a_0.6.png)
 
 f=0.6结果图
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_a_0.8.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_a_0.8.png)
 
 f=0.8结果图
 
@@ -361,7 +361,7 @@ f=0.8结果图
 
 预测1000声誉所需时间的图像如下：
 
- ![](C:\Users\ychhj\Documents\projects\simulation\pic\Rep_time.png)
+ ![](https://github.com/drep-project/rep-algos/blob/master/imagesources/Rep_time.png)
 
 说明至少需要40%活跃（换言之，每周活跃3次左右）才能在1.5年左右获得1000累计声誉，最少也需要1年时间。但对于非常活跃的用户（每周活跃6次或更高），大约需要数月时间即可。这就明显造成了对用户的激励：
 
@@ -369,13 +369,13 @@ f=0.8结果图
 
 获得2000声誉的时间示意图：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\Rep_time2000.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/Rep_time2000.png)
 
 从这能看出，用户活跃频率需要达到每周4次以上才有可能获得2000声誉，随着频率上升所需时间呈现指数下降。这就表明累计2000声誉用户将会很稀少，这样的用户可以赋予较高的声誉等级，提高在相应平台的影响力。
 
 获得500累计声誉的示意图：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\Rep_time500.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/Rep_time500.png)
 
 至少需要每周活跃1次以上才能在1年之后获得500累计声誉，之后随着频率上升呈现指数下降，是比较符合常理的。
 
@@ -385,17 +385,17 @@ f=0.8结果图
 
 计算结果图如下(参数与默认设置保持一致）：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_dif2.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_dif2.png)
 
 可以看出在f=0.5下，累加算法很难表现出某日是否活跃产生的不同，相反回归算法对于某日活跃的响应非常明显。同时其变化趋势为线性上升，和其他f的不同只能从累加声誉数值上的不同得以体现（下图为f=0.3情况）：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_dif3.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_dif3.png)
 
 从之前不同活跃频率对累计声誉的影响图可以得知，f的轻微变化不仅会影响最终获得的累计声誉，还会明显地影响到声誉获得曲线的走势。相比而言，回归声誉的设计更加合理。
 
 而如果出现长期不活动状态，线性累加的声誉表现合理性很低：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_dif1.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_dif1.png)
 
 在长达70天的不活跃期，由于不会减少，所以累加声誉保持不变，并可以为后续活动获得声誉进行无损的初值积累。而回归声誉在70天后归零，后面再次活跃的声誉必须重新积累。从该图也可看出，早期累加声誉与回归累计声誉的差别并不大，但后期变化很大，方便根据不同的获得进行声誉调整，而不必担心由于数值积累过快而导致数值膨胀。
 
@@ -425,11 +425,11 @@ $$
 $$
 结果图如下：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_1000_end_0.5.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_1000_end_0.5.png)
 
 在1000天后停止获取声誉，声誉在50天左右停留在1200的10%附近，同时这也比无此设置的结果更加缓慢：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_1000_end_0.5_no.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_1000_end_0.5_no.png)
 
 不过即使有此设置，其累计声誉损失速度仍然很快，不能当作纯粹给老用户的福利。
 
@@ -437,7 +437,7 @@ $$
 
 对默认模型进行Token奖励计算的结果如下：
 
-![](C:\Users\ychhj\Documents\projects\simulation\pic\pic_0.5_token.png)
+![](https://github.com/drep-project/rep-algos/blob/master/imagesources/pic_0.5_token.png)
 
 图中蓝线为累计声誉，红线为累计Token奖励。可以看出整体为凹函数，早期奖励较为明显，后期则为线性增长。而在活跃度较小，累计声誉下降时，Token获得为0；活跃度较大，累计声誉上升明显时，则曲线斜率较大。这样就可以在两次计算大大降低波动性下保留一定的稳定性与响应性。
 
